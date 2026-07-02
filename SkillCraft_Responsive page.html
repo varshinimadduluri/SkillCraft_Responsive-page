@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Navigation Menu</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            min-height:200vh; /* Added for scrolling */
+        }
+
+        /* Navigation Bar */
+        nav{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 30px;
+            background-color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.4s;
+            z-index: 1000;
+        }
+
+        /* Navbar color after scrolling */
+        nav.scrolled{
+            background-color: #007BFF;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo{
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links{
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li{
+            margin-left: 25px;
+        }
+
+        .nav-links a{
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        /* Hover effect */
+        .nav-links a:hover{
+            background-color: white;
+            color: #007BFF;
+            transform: scale(1.1);
+        }
+
+        /* Sample sections */
+        section{
+            padding-top: 100px;
+            height: 100vh;
+            text-align: center;
+        }
+
+        #home{ background: #f4f4f4; }
+        #about{ background: #dfe6e9; }
+        #services{ background: #b2bec3; }
+        #contact{ background: #95a5a6; }
+
+        h1{
+            padding-top: 200px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">My Website</div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <h1>Home Section</h1>
+    </section>
+
+    <section id="about">
+        <h1>About Section</h1>
+    </section>
+
+    <section id="services">
+        <h1>Services Section</h1>
+    </section>
+
+    <section id="contact">
+        <h1>Contact Section</h1>
+    </section>
+
+    <script>
+        // Change navbar color on scroll
+        window.addEventListener("scroll", function() {
+            const navbar = document.getElementById("navbar");
+
+            if(window.scrollY > 50){
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+
+</body>
+</html>
